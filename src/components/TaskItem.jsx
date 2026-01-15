@@ -90,6 +90,10 @@ function TaskItem({ task, onToggle, onEdit, onDelete }) {
                             e.preventDefault() // Prevent input from losing focus
                             handleSave()
                         }}
+                        onClick={(e) => {
+                            e.preventDefault() // Prevent click from reaching edit button
+                            e.stopPropagation()
+                        }}
                         aria-label={`Save changes to "${task.text}"`}
                     >
                         ✓
