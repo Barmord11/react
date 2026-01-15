@@ -84,7 +84,15 @@ function TaskItem({ task, onToggle, onEdit, onDelete }) {
 
             {/* Action buttons */}
             <div className="task-actions">
-                {!isEditing && (
+                {isEditing ? (
+                    <button
+                        className="task-btn task-save-btn"
+                        onClick={handleSave}
+                        aria-label={`Save changes to "${task.text}"`}
+                    >
+                        ✓
+                    </button>
+                ) : (
                     <button
                         className="task-btn task-edit-btn"
                         onClick={handleEditClick}

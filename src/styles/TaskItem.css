@@ -98,6 +98,10 @@
     background-color: #e3f2fd;
 }
 
+.task-save-btn:hover {
+    background-color: #e8f5e9;
+}
+
 .task-delete-btn:hover {
     background-color: #ffebee;
 }
