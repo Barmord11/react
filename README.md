@@ -9,7 +9,9 @@ A modern, responsive task management application built with React 19 and Vite. F
 - ✅ **Full CRUD Operations** - Create, read, update, and delete tasks
 - 🔄 **Toggle Completion** - Mark tasks as complete/incomplete with a single click
 - ✏️ **Inline Editing** - Double-click tasks to edit descriptions
+- ✓ **Visual Save Button** - Obvious save button (✓) in edit mode for better UX
 - 🔍 **Smart Filtering** - View all, active, or completed tasks
+- 🚫 **Filter-Based Edit Cancellation** - Changing filters automatically cancels in-progress edits
 - 💾 **Persistent Storage** - Tasks automatically save to localStorage
 - 📊 **Task Counter** - Real-time count of active (incomplete) tasks
 - 🎨 **Modern UI** - Clean, accessible design with smooth transitions
@@ -82,8 +84,9 @@ App
 ### Managing Tasks
 - **Complete/Uncomplete**: Click the checkbox next to any task
 - **Edit**: Double-click the task text or click the ✏️ edit icon
-  - Press **Enter** to save changes
-  - Press **Escape** to cancel editing
+  - Press **Enter** or click the **✓ save button** to save changes
+  - Press **Escape** to cancel editing without saving
+  - Changing filters (All/Active/Completed) cancels editing without saving
 - **Delete**: Click the 🗑️ delete icon
 
 ### Filtering Tasks
@@ -95,6 +98,8 @@ App
 - **Completed** - Shows only completed tasks
 
 The active filter is highlighted in blue, and the task counter shows remaining active tasks.
+
+**Note:** Switching filters while editing a task will cancel the edit without saving changes.
 
 ### Editing Tasks
 
@@ -190,7 +195,9 @@ For questions or feedback about this project, please refer to the project reposi
 - ✅ **פעולות CRUD מלאות** - יצירה, קריאה, עדכון ומחיקה של משימות
 - 🔄 **החלפת מצב השלמה** - סימון משימות כהושלמו/לא הושלמו בלחיצה אחת
 - ✏️ **עריכה מוטמעת** - לחיצה כפולה על משימות לעריכת תיאורים
+- ✓ **כפתור שמירה ויזואלי** - כפתור שמירה ברור (✓) במצב עריכה לחוויית משתמש טובה יותר
 - 🔍 **סינון חכם** - צפייה בכל המשימות, פעילות או שהושלמו
+- 🚫 **ביטול עריכה מבוסס סינון** - שינוי סינונים מבטל אוטומטית עריכות בתהליך
 - 💾 **אחסון קבוע** - משימות נשמרות אוטומטית ב-localStorage
 - 📊 **מונה משימות** - ספירה בזמן אמת של משימות פעילות (לא הושלמו)
 - 🎨 **ממשק משתמש מודרני** - עיצוב נקי ונגיש עם מעברים חלקים
@@ -263,8 +270,9 @@ App
 ### ניהול משימות
 - **השלמה/ביטול השלמה**: לחץ על תיבת הסימון ליד כל משימה
 - **עריכה**: לחיצה כפולה על טקסט המשימה או לחץ על אייקון העריכה ✏️
-  - לחץ על **Enter** לשמירת שינויים
-  - לחץ על **Escape** לביטול עריכה
+  - לחץ על **Enter** או לחץ על **כפתור השמירה ✓** לשמירת שינויים
+  - לחץ על **Escape** לביטול עריכה ללא שמירה
+  - שינוי סינונים (הכל/פעיל/הושלם) מבטל עריכה ללא שמירה
 - **מחיקה**: לחץ על אייקון המחיקה 🗑️
 
 ### סינון משימות
@@ -276,6 +284,8 @@ App
 - **הושלם** - מציג רק משימות שהושלמו
 
 הסינון הפעיל מודגש בכחול, ומונה המשימות מציג את המשימות הפעילות שנותרו.
+
+**הערה:** מעבר בין סינונים בזמן עריכת משימה יבטל את העריכה ללא שמירת שינויים.
 
 ### עריכת משימות
 
