@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import '../styles/TaskItem.css'
 
 /**
@@ -12,6 +12,7 @@ import '../styles/TaskItem.css'
 function TaskItem({ task, onToggle, onEdit, onDelete }) {
     const [isEditing, setIsEditing] = useState(false)
     const [editText, setEditText] = useState(task.text)
+    const justSaved = useRef(false)
 
     // Toggle edit mode on double-click
     const handleDoubleClick = () => {
@@ -24,6 +25,11 @@ function TaskItem({ task, onToggle, onEdit, onDelete }) {
         if (editText.trim()) {
             onEdit(task.id, editText)
             setIsEditing(false)
+            justSaved.current = true
+            // Reset flag after a brief moment to allow future edits
+            setTimeout(() => {
+                justSaved.current = false
+            }, 300)
         } else {
             // If empty, cancel the edit
             setEditText(task.text)
@@ -44,6 +50,9 @@ function TaskItem({ task, onToggle, onEdit, onDelete }) {
 
     // Handle edit button click
     const handleEditClick = () => {
+        // Ignore if we just saved (prevents click-through bug)
+        if (justSaved.current) return
+
         setIsEditing(true)
         setEditText(task.text)
     }
@@ -87,12 +96,8 @@ function TaskItem({ task, onToggle, onEdit, onDelete }) {
                     <button
                         className="task-btn task-save-btn"
                         onMouseDown={(e) => {
-                            e.preventDefault() // Prevent input from losing focus
+                            e.preventDefault()
                             handleSave()
-                        }}
-                        onClick={(e) => {
-                            e.preventDefault() // Prevent click from reaching edit button
-                            e.stopPropagation()
                         }}
                         aria-label={`Save changes to "${task.text}"`}
                     >
