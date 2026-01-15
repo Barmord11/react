@@ -1,0 +1,75 @@
+/* TaskFilters Styles */
+.task-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    margin-top: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.task-counter {
+    font-size: 14px;
+    color: #666;
+}
+
+.task-counter strong {
+    color: #3498db;
+    font-size: 16px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    background-color: transparent;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background-color: #f5f5f5;
+    border-color: #3498db;
+    color: #3498db;
+}
+
+.filter-btn-active {
+    background-color: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+.filter-btn-active:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.filter-btn:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .task-filters {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .filter-buttons {
+        justify-content: center;
+    }
+
+    .task-counter {
+        text-align: center;
+    }
+}
