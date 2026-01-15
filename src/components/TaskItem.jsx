@@ -67,7 +67,6 @@ function TaskItem({ task, onToggle, onEdit, onDelete }) {
                         className="task-edit-input"
                         value={editText}
                         onChange={(e) => setEditText(e.target.value)}
-                        onBlur={handleSave}
                         onKeyDown={handleKeyDown}
                         autoFocus
                     />
@@ -87,7 +86,10 @@ function TaskItem({ task, onToggle, onEdit, onDelete }) {
                 {isEditing ? (
                     <button
                         className="task-btn task-save-btn"
-                        onClick={handleSave}
+                        onMouseDown={(e) => {
+                            e.preventDefault() // Prevent input from losing focus
+                            handleSave()
+                        }}
                         aria-label={`Save changes to "${task.text}"`}
                     >
                         ✓
