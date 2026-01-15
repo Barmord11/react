@@ -8,8 +8,9 @@ import '../styles/TaskList.css'
  * @param {Function} props.onToggle - Callback to toggle task completion
  * @param {Function} props.onEdit - Callback to edit task text
  * @param {Function} props.onDelete - Callback to delete a task
+ * @param {string} props.filter - Current filter state to reset edits on change
  */
-function TaskList({ tasks, onToggle, onEdit, onDelete }) {
+function TaskList({ tasks, onToggle, onEdit, onDelete, filter }) {
     // Handle empty state
     if (tasks.length === 0) {
         return (
@@ -23,7 +24,7 @@ function TaskList({ tasks, onToggle, onEdit, onDelete }) {
         <ul className="task-list">
             {tasks.map((task) => (
                 <TaskItem
-                    key={task.id}
+                    key={`${task.id}-${filter}`}
                     task={task}
                     onToggle={onToggle}
                     onEdit={onEdit}

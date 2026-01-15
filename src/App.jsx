@@ -117,6 +117,7 @@ function App() {
         onToggle={toggleTask}
         onEdit={editTask}
         onDelete={deleteTask}
+        filter={filter}
       />
 
       {/* TaskFilters component */}
