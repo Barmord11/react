@@ -9,13 +9,14 @@ import '../styles/TaskList.css'
  * @param {Function} props.onEdit - Callback to edit task text
  * @param {Function} props.onDelete - Callback to delete a task
  * @param {string} props.filter - Current filter state to reset edits on change
+ * @param {Object} props.t - Translation strings
  */
-function TaskList({ tasks, onToggle, onEdit, onDelete, filter }) {
+function TaskList({ tasks, onToggle, onEdit, onDelete, filter, t }) {
     // Handle empty state
     if (tasks.length === 0) {
         return (
             <div className="task-list-empty">
-                <p>No tasks to display. Add a task to get started! 🎯</p>
+                <p>{t.noTasks}</p>
             </div>
         )
     }

@@ -2,12 +2,14 @@ import { useState, useEffect, useRef } from 'react'
 import TaskForm from './components/TaskForm'
 import TaskList from './components/TaskList'
 import TaskFilters from './components/TaskFilters'
+import { translations } from './translations'
 import './styles/App.css'
 
 function App() {
   // State management
   const [tasks, setTasks] = useState([])
   const [filter, setFilter] = useState('all') // 'all' | 'active' | 'completed'
+  const [language, setLanguage] = useState('en') // 'en' | 'he'
 
   // Track first render to prevent overwriting localStorage on initial mount
   // This ref prevents the save effect from running before the load effect completes
@@ -20,8 +22,15 @@ function App() {
       if (savedTasks) {
         setTasks(JSON.parse(savedTasks))
       }
+
+      // Load language preference
+      const savedLanguage = localStorage.getItem('language')
+      if (savedLanguage === 'he' || savedLanguage === 'en') {
+        setLanguage(savedLanguage)
+        document.documentElement.dir = savedLanguage === 'he' ? 'rtl' : 'ltr'
+      }
     } catch (error) {
-      console.error('Error loading tasks from localStorage:', error)
+      console.error('Error loading from localStorage:', error)
     }
   }, [])
 
@@ -102,6 +111,20 @@ function App() {
     setTasks(tasks.filter(task => !task.completed))
   }
 
+  /**
+   * Toggles between English and Hebrew languages
+   * @returns {void}
+   */
+  const toggleLanguage = () => {
+    const newLanguage = language === 'en' ? 'he' : 'en'
+    setLanguage(newLanguage)
+    localStorage.setItem('language', newLanguage)
+    document.documentElement.dir = newLanguage === 'he' ? 'rtl' : 'ltr'
+  }
+
+  // Get current translations
+  const t = translations[language]
+
   // Filter tasks based on current filter
   const filteredTasks = tasks.filter(task => {
     if (filter === 'active') return !task.completed
@@ -114,10 +137,20 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Task Management</h1>
+      <div className="app-header">
+        <h1>{t.title}</h1>
+        <button
+          className="language-toggle-btn"
+          onClick={toggleLanguage}
+          aria-label="Toggle language"
+          title={language === 'en' ? 'Switch to Hebrew' : 'Switch to English'}
+        >
+          {language === 'en' ? '🇮🇱' : '🇺🇸'}
+        </button>
+      </div>
 
       {/* TaskForm component */}
-      <TaskForm onAddTask={addTask} />
+      <TaskForm onAddTask={addTask} t={t} />
 
       {/* TaskList component */}
       <TaskList
@@ -126,6 +159,7 @@ function App() {
         onEdit={editTask}
         onDelete={deleteTask}
         filter={filter}
+        t={t}
       />
 
       {/* TaskFilters component */}
@@ -134,6 +168,7 @@ function App() {
         onFilterChange={setFilter}
         activeCount={activeTaskCount}
         onClearCompleted={clearCompleted}
+        t={t}
       />
     </div>
   )
