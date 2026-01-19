@@ -188,7 +188,7 @@ For questions or feedback about this project, please refer to the project reposi
 
 אפליקציה מודרנית ומגיבה לניהול משימות שנבנתה עם React 19 ו-Vite. כוללת אחסון קבוע, עריכה מוטמעת ויכולות סינון לארגון יעיל של משימות.
 
-![תצוגה ראשית של האפליקציה](file:///C:/Users/barmo/.gemini/antigravity/brain/be9d5f06-a036-4c4d-b363-3e7f358dfa24/app_main_view_1768490961175.png)
+
 
 ## תכונות
 
@@ -202,6 +202,7 @@ For questions or feedback about this project, please refer to the project reposi
 - 📊 **מונה משימות** - ספירה בזמן אמת של משימות פעילות (לא הושלמו)
 - 🎨 **ממשק משתמש מודרני** - עיצוב נקי ונגיש עם מעברים חלקים
 - ⌨️ **תמיכה במקלדת** - ניווט מלא במקלדת וקיצורי דרך
+- 🇮🇱 **תמיכה בHEBREW** - הוספת של כפתורי תרגום מעברית לאנגלית ובחזרה
 
 ## התקנה והגדרה
 
@@ -227,7 +228,7 @@ For questions or feedback about this project, please refer to the project reposi
    ```
 
 4. **פתח את הדפדפן שלך:**
-   נווט אל `http://localhost:5173`
+   נווט אל `http://localhost:'' שנוצר לך
 
 ### סקריפטים זמינים
 
@@ -289,7 +290,7 @@ App
 
 ### עריכת משימות
 
-![מצב עריכה](file:///C:/Users/barmo/.gemini/antigravity/brain/be9d5f06-a036-4c4d-b363-3e7f358dfa24/edit_mode_1768491037068.png)
+
 
 ## פרטים טכניים
 
@@ -359,9 +360,7 @@ const filteredTasks = tasks.filter(task => {
 
 פרויקט זה נוצר כתרגיל למידה והדגמה של שיטות עבודה מומלצות ב-React.
 
-## יצירת קשר
 
-לשאלות או משוב על פרויקט זה, אנא פנה למאגר הפרויקט.
 
 ---
 
