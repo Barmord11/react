@@ -5,8 +5,9 @@ import '../styles/TaskForm.css'
  * Form component for adding new tasks
  * @param {Object} props
  * @param {Function} props.onAddTask - Callback function to add a new task
+ * @param {Object} props.t - Translation strings
  */
-function TaskForm({ onAddTask }) {
+function TaskForm({ onAddTask, t }) {
     const [taskText, setTaskText] = useState('')
 
     const handleSubmit = (e) => {
@@ -33,13 +34,13 @@ function TaskForm({ onAddTask }) {
             <input
                 type="text"
                 className="task-input"
-                placeholder="What needs to be done?"
+                placeholder={t.inputPlaceholder}
                 value={taskText}
                 onChange={handleInputChange}
                 autoFocus
             />
             <button type="submit" className="task-submit-btn">
-                Add Task
+                {t.addTask}
             </button>
         </form>
     )

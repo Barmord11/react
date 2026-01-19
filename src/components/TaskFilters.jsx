@@ -7,13 +7,14 @@ import '../styles/TaskFilters.css'
  * @param {Function} props.onFilterChange - Callback to change the active filter
  * @param {number} props.activeCount - Number of active (incomplete) tasks
  * @param {Function} props.onClearCompleted - Callback to remove all completed tasks
+ * @param {Object} props.t - Translation strings
  */
-function TaskFilters({ filter, onFilterChange, activeCount, onClearCompleted }) {
+function TaskFilters({ filter, onFilterChange, activeCount, onClearCompleted, t }) {
     return (
         <div className="task-filters">
             {/* Task counter */}
             <div className="task-counter">
-                <strong>{activeCount}</strong> {activeCount === 1 ? 'item' : 'items'} left
+                <strong>{activeCount}</strong> {activeCount === 1 ? t.itemLeft : t.itemsLeft}
             </div>
 
             {/* Filter buttons */}
@@ -22,19 +23,19 @@ function TaskFilters({ filter, onFilterChange, activeCount, onClearCompleted }) 
                     className={`filter-btn ${filter === 'all' ? 'filter-btn-active' : ''}`}
                     onClick={() => onFilterChange('all')}
                 >
-                    All
+                    {t.filterAll}
                 </button>
                 <button
                     className={`filter-btn ${filter === 'active' ? 'filter-btn-active' : ''}`}
                     onClick={() => onFilterChange('active')}
                 >
-                    Active
+                    {t.filterActive}
                 </button>
                 <button
                     className={`filter-btn ${filter === 'completed' ? 'filter-btn-active' : ''}`}
                     onClick={() => onFilterChange('completed')}
                 >
-                    Completed
+                    {t.filterCompleted}
                 </button>
             </div>
 
@@ -43,7 +44,7 @@ function TaskFilters({ filter, onFilterChange, activeCount, onClearCompleted }) 
                 className="clear-completed-btn"
                 onClick={onClearCompleted}
             >
-                Clear Completed
+                {t.clearCompleted}
             </button>
         </div>
     )

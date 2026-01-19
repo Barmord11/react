@@ -15,13 +15,13 @@ export const translations = {
     he: {
         title: 'מנהל משימות',
         addTask: 'הוסף משימה',
-        inputPlaceholder: 'מה צריך לעשות?',
+        inputPlaceholder: 'מה נעשה היום?',
         filterAll: 'הכל',
-        filterActive: 'פעיל',
-        filterCompleted: 'הושלם',
-        itemsLeft: 'משימות נותרו',
-        itemLeft: 'משימה נותרה',
-        clearCompleted: 'נקה משימות שהושלמו',
+        filterActive: 'פעילים',
+        filterCompleted: 'הושלמו',
+        itemsLeft: 'נותרו',
+        itemLeft: 'נותרה',
+        clearCompleted: 'נקה משימות גמורות',
         noTasks: 'אין משימות להצגה. הוסף משימה כדי להתחיל! 🎯',
     }
 }
