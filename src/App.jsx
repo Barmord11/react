@@ -94,6 +94,14 @@ function App() {
     setTasks(tasks.filter(task => task.id !== id))
   }
 
+  /**
+   * Removes all completed tasks from the task list
+   * @returns {void}
+   */
+  const clearCompleted = () => {
+    setTasks(tasks.filter(task => !task.completed))
+  }
+
   // Filter tasks based on current filter
   const filteredTasks = tasks.filter(task => {
     if (filter === 'active') return !task.completed
@@ -125,6 +133,7 @@ function App() {
         filter={filter}
         onFilterChange={setFilter}
         activeCount={activeTaskCount}
+        onClearCompleted={clearCompleted}
       />
     </div>
   )

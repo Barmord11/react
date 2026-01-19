@@ -6,8 +6,9 @@ import '../styles/TaskFilters.css'
  * @param {string} props.filter - Current active filter ('all' | 'active' | 'completed')
  * @param {Function} props.onFilterChange - Callback to change the active filter
  * @param {number} props.activeCount - Number of active (incomplete) tasks
+ * @param {Function} props.onClearCompleted - Callback to remove all completed tasks
  */
-function TaskFilters({ filter, onFilterChange, activeCount }) {
+function TaskFilters({ filter, onFilterChange, activeCount, onClearCompleted }) {
     return (
         <div className="task-filters">
             {/* Task counter */}
@@ -36,6 +37,14 @@ function TaskFilters({ filter, onFilterChange, activeCount }) {
                     Completed
                 </button>
             </div>
+
+            {/* Clear Completed button */}
+            <button
+                className="clear-completed-btn"
+                onClick={onClearCompleted}
+            >
+                Clear Completed
+            </button>
         </div>
     )
 }
